@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /PiePHP/
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_URI} !^/W-PHP-502-MAR-2-1-PiePHP-jennifer.kadri/(webroot/.+|index.php|robots.txt)$
+RewriteRule ^ /W-PHP-502-MAR-2-1-PiePHP-jennifer.kadri/index.php [QSA,L]

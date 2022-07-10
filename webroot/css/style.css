@@ -1,0 +1,521 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    --hue: 337;
+    --sat: 82%;
+    --lig: 85%;
+
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --first-color: hsl(var(--hue), var(--sat), var(--lig));
+    --first-color-alt: hsl(var(--hue), 68%, 71%);
+    --title-color: hsl(var(--hue), 12%, 15%);
+    --text-color: hsl(var(--hue), 12%, 20%);
+    --text-color-light: hsl(var(--hue), 8%, 75%);
+    --text-color-lighten: hsl(var(--hue), 8%, 92%);
+    --body-color: hsl(var(--hue), 100%, 99%);
+    --container-color: hsl(0, 0%, 100%);
+
+    /* .5rem = 8px | 1rem = 16px */
+    --ff-body: 'Montserrat', sans-serif;
+    --ff-h2: 1.25rem;
+    --ff-h3: 1rem;
+    --ff-normal: .938rem;
+    --ff-small: .813rem;
+    --ff-smaller: .75rem;
+}
+
+/* Responsive Typography */
+@media screen and (min-width: 968px) {
+    :root {
+        --ff-h2: 1.5rem;
+        --ff-h3: 1.25rem;
+        --ff-large: 1.1rem;
+        --ff-normal: 1rem;
+        --ff-small: .855rem;
+        --ff-smaller: .813rem;
+    }
+}
+
+/*========== BASE ==========*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: var(--ff-body);
+    font-size: var(--ff-normal);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: .3s; /* animation in dark mode */
+}
+
+h1, h2, h3 {
+    color: var(--title-color);
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    font-size: var(--ff-normal);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*========== THEME ==========*/
+.change-theme {
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.change-theme:hover {
+    color: var(--first-color);
+}
+
+.home {
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: .3s;
+}
+
+/*========== Dark Theme ==========*/
+body.dark-theme {
+    --title-color: hsl(var(--hue), 12%, 95%);
+    --text-color: hsl(var(--hue), 12%, 75%);
+    --body-color: hsl(var(--hue), 5%, 8%);
+    --container-color: hsl(var(--hue), 10%, 12%);
+}
+
+.dark-theme .form .title {
+    color: var(--title-color);
+    text-shadow: 0 0.09rem var(--first-color);
+}
+
+.dark-theme form {
+    box-shadow: 0 0 .4rem var(--first-color);
+}
+
+.dark-theme .form label {
+    padding-top: .15rem;
+    color: var(--title-color);
+}
+
+.dark-theme .error__message h3 {
+    text-shadow: 0.1rem 0.2rem var(--title-color);
+}
+
+.dark-theme .error__message small {
+    color: var(--first-color);
+}
+
+.dark-theme::-webkit-scrollbar {
+    background-color: hsl(var(--hue), 8%, 16%);
+}
+
+.dark-theme::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--hue), 8%, 24%);
+}
+
+.dark-theme::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--hue), 8%, 32%);
+}
+
+/*========== REUSABLE CSS CLASSES ==========*/
+.container {
+    text-align: center;
+    max-width: 968px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/*========== HERO ==========*/
+.hero {
+    position: relative;
+    padding-top: 3.5rem;
+}
+
+.hero__container {
+    row-gap: 2rem;
+}
+
+.hero__data {
+    display: grid;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+.hero__border {
+    border: 3.5px solid var(--first-color);
+    justify-self: center;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: .75rem;
+}
+
+.hero__picture {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(180deg, 
+                hsla(var(--hue), var(--sat), var(--lig), 1) 0%,
+                hsla(var(--hue), var(--sat), var(--lig), .2) 100%);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    cursor: pointer; 
+}
+
+.hero__picture img {
+    width: 90px;
+}
+
+.hero__picture #home {
+    color: var(--title-color);
+    font-size: 1.6rem;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__name {
+    margin-bottom: .8rem;
+    font-size: var(--ff-h2);
+}
+
+.hero__info {
+    font-size: var(--ff-small);
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: .2rem;
+}
+
+.hero__credit {
+    font-size: var(--ff-smaller);
+}
+
+
+/*========== MAIN ==========*/
+.main__content {
+    margin: 1.5rem 0 1.5rem;
+    padding: .375rem;
+    border-radius: .75rem;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 2rem;
+}
+
+.main__button  {
+    width: 100%;
+    border: 2px solid var(--first-color);
+    outline: none;
+    padding: .5rem;
+    color: var(--title-color);
+    font-size: var(--ff-large);
+    font-family: var(--ff-body);
+    font-weight: 500;
+    border-radius: .75rem;
+    cursor: pointer;
+    background-color: transparent;
+    transition: .3s;
+}
+
+.main__button:hover {
+    color: var(--body-color);
+    background-color: var(--first-color);
+}
+
+/*========== FORM ==========*/
+.form.container {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    place-content: center;
+}
+
+form {
+    text-align: center;
+    width: 25rem;
+    padding: 1rem;
+    font-size: var(--ff-normal);
+    border: 2px solid var(--first-color);
+    border-radius: 4px;
+    box-shadow: 0 0 .8rem var(--first-color);
+    display: block;
+}
+
+.register-form h3 {
+    padding-bottom: .2rem;
+}
+
+.log-form .title,
+.register-form .title {
+    letter-spacing: 2px;
+    text-shadow: 0 0.1rem var(--first-color);
+}
+
+.log-form > div,
+.register-form > div {
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    gap: 1rem;
+    display: flex;
+}
+
+.log-form label,
+.register-form label {
+    place-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: var(--ff-small);
+    font-weight: 500;
+}
+
+.log-form .mail input,
+.register-form .mail input {
+    width: 16.5rem;
+}
+
+.register-form .name input {
+    width: 14.4rem;
+}
+
+.log-form input,
+.register-form input {
+    width: 14.8rem;
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    border: none;
+    box-shadow: 0 0 0 .1rem var(--first-color);
+}
+
+.log-form input:hover,
+.register-form input:hover {
+    box-shadow: 0 0 0 .1rem var(--first-color-alt);
+}
+
+.log-form .btn,
+.register-form .btn {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    padding: 0.4rem 9rem;
+    color: var(--clr-neutral-100);
+    background-color: var(--first-color);
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 300ms ease;
+    cursor: pointer;
+    border: none;
+
+}
+
+.log-form .btn:hover,
+.register-form .btn:hover {
+    box-shadow: 0 0 0 .1rem var(--first-color-alt);
+}
+
+/*========== FOOTER ==========*/
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer__copy {
+    align-items: center;
+    display: block;
+    margin: 2.5rem 0.2rem;
+    text-align: center;
+    font-size: var(--ff-smaller);
+    color: var(--text-color-light);
+}
+
+/*========== ERROR 404 ==========*/
+.error__message {
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
+    row-gap: .2rem;
+    height: 25rem;
+    place-content: center;
+}
+
+.error__message h3 {
+    position: relative;
+    font-size: 3.5rem;
+    color: var(--first-color);
+    text-shadow: 0.1rem 0.2rem var(--text-color);
+}
+
+.error__message span {
+    color: var(--title-color);
+    margin-bottom: .2rem;
+    font-size: 1.4rem;
+}
+
+.error__message small {
+    color: var(--first-color-alt);
+    font-size: 1rem;
+}
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar {
+    width: .6rem;
+    border-radius: .5rem;
+    background-color: hsl(var(--hue), 8%, 66%);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: hsl(var(--hue), 8%, 54%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--hue), 8%, 44%);
+}
+
+/*========== BREAKPOINTS ==========*/
+@media screen and (max-width: 320px) {
+    .container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .hero__info {
+        column-gap: 1.5rem;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+
+    .main__content {
+        place-content: center;
+        display: grid;
+        row-gap: 1rem;
+    }
+    .main__button {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 576px) {
+    .hero__info {
+        font-size: var(--ff-smaller);
+    }
+    .hero__buttons {
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+    
+    .main__content {
+        place-content: center;
+        display: grid;
+        row-gap: 1rem;
+    }
+    .main__button {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .projects__content {
+        grid-template-columns: 332px;
+        justify-content: center;
+    }
+
+    .main__content {
+        width: 500px;
+        margin: 2rem auto;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .change-theme {
+        top: 2.5rem;
+        right: 2.5rem;
+    }
+    .home {
+        top: 2.5rem;
+        left: 2.5rem;
+    }
+
+    .hero {
+        padding-top: 2rem;
+    }
+    .hero__border {
+        width: 135px;
+        height: 135px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .hero__picture {
+        width: 120px;
+        height: 120px;
+    }
+    .hero__picture img {
+        width: 105px;
+    }
+    .hero__picture #home {
+        padding-bottom: .5rem;
+    }
+    .hero__profession {
+        margin-bottom: 1.5rem;
+    }
+    .hero__info {
+        column-gap: 3rem;
+    }
+    .hero__info-description {
+        font-size: var(--ff-small);
+    }
+    .hero__buttons {
+        column-gap: 2rem;
+    }
+
+    .main__content {
+        width: 500px;
+    }
+
+    .footer__copy {
+        margin: 4.5rem 0 2.5rem
+    }
+}
